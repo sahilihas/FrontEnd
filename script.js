@@ -52,14 +52,58 @@ function headerScrollEffect() {
   });
 }
 
-const slides = document.querySelectorAll('input[name="carousel"]');
-  let current = 0;
+const radios = document.querySelectorAll('input[name="carousel"]');
+  const carousel = document.querySelector('.video-carousel');
+  let current = 0, rotateInterval, isHovered = false, playingCount = 0;
 
-  setInterval(() => {
-    slides[current].checked = false;
-    current = (current + 1) % slides.length;
-    slides[current].checked = true;
-  }, 5000)
+  function showNext() {
+    radios[current].checked = false;
+    current = (current + 1) % radios.length;
+    radios[current].checked = true;
+  }
+
+  function startRotation() {
+    if (!rotateInterval) {
+      rotateInterval = setInterval(showNext, 5000);
+    }
+  }
+
+  function stopRotation() {
+    clearInterval(rotateInterval);
+    rotateInterval = null;
+  }
+
+  carousel.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopRotation();
+  });
+  carousel.addEventListener('mouseleave', () => {
+    isHovered = false;
+    if (playingCount === 0) startRotation();
+  });
+
+  function onPlayerStateChange(event) {
+    const state = event.data;
+    if (state === YT.PlayerState.PLAYING) {
+      playingCount++;
+      stopRotation();
+    } else if (state === YT.PlayerState.PAUSED || state === YT.PlayerState.ENDED) {
+      playingCount = Math.max(0, playingCount - 1);
+      if (playingCount === 0 && !isHovered) {
+        startRotation();
+      }
+    }
+  }
+
+  let players = [];
+  function onYouTubeIframeAPIReady() {
+    ['player1','player2','player3'].forEach((id) => {
+      players.push(new YT.Player(id, {
+        events: { 'onStateChange': onPlayerStateChange }
+      }));
+    });
+  }
+  window.addEventListener('load', startRotation);
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();

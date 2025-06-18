@@ -7,6 +7,7 @@
   <meta name="description" content="Easily integrate Telecrm with the tools you already use to save time and improve team performance" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://www.youtube.com/iframe_api"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -421,24 +422,6 @@
     </div>
   </section>
 
-
-  <!-- <section class="testimonials-mobile" id="testimonials">
-    <div class="testimonial-video-wrapper">
-      <h2 class="testimonial-title">What Our Customers Say</h2>
-      <p class="testimonial-description">
-        Trusted by over 25,000 users and counting
-      </p>
-      <div class="video-container">
-        <iframe 
-          src="https://www.youtube.com/embed/CCDRBTYSo6c?rel=0&showinfo=0&autoplay=0&mute=0" 
-          frameborder="0" 
-          allowfullscreen 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-        </iframe>
-      </div>
-    </div>
-  </section> -->
-
   <section class="testimonials-mobile" id="testimonials">
   <div class="testimonial-video-wrapper">
     <h2 class="testimonial-title">What Our Customers Say</h2>
@@ -446,9 +429,7 @@
       Trusted by over 25,000 users and counting
     </p>
 
-    <!-- Carousel wrapper -->
     <div class="video-carousel">
-      <!-- radios to control slides -->
       <input type="radio" name="carousel" id="slide1" checked>
       <input type="radio" name="carousel" id="slide2">
       <input type="radio" name="carousel" id="slide3">
@@ -457,7 +438,8 @@
         <div class="slide">
           <div class="video-container">
             <iframe 
-              src="https://www.youtube.com/embed/P6aQlaN35NA?rel=0&showinfo=0&autoplay=0&mute=0" 
+              id="player1"
+              src="https://www.youtube.com/embed/P6aQlaN35NA?rel=0&showinfo=0&autoplay=0&mute=0&enablejsapi=1" 
               frameborder="0" 
               allowfullscreen 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
@@ -467,7 +449,8 @@
         <div class="slide">
           <div class="video-container">
             <iframe 
-              src="https://www.youtube.com/embed/piVVB4KHer8?rel=0&showinfo=0&autoplay=0&mute=0" 
+              id="player2"
+              src="https://www.youtube.com/embed/piVVB4KHer8?rel=0&showinfo=0&autoplay=0&mute=0&enablejsapi=1" 
               frameborder="0" 
               allowfullscreen 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
@@ -477,7 +460,8 @@
         <div class="slide">
           <div class="video-container">
             <iframe 
-              src="https://www.youtube.com/embed/CCDRBTYSo6c?rel=0&showinfo=0&autoplay=0&mute=0" 
+              id="player3"
+              src="https://www.youtube.com/embed/CCDRBTYSo6c?rel=0&showinfo=0&autoplay=0&mute=0&enablejsapi=1" 
               frameborder="0" 
               allowfullscreen 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
@@ -486,14 +470,12 @@
         </div>
       </div>
 
-      <!-- dot controls -->
       <div class="dots">
         <label for="slide1"></label>
         <label for="slide2"></label>
         <label for="slide3"></label>
       </div>
     </div>
-    <!-- end carousel -->
 
   </div>
 </section>
